@@ -102,6 +102,10 @@ class SignUpFormBase extends Component {
         this.setState({[event.target.name]: event.target.value});
     };
 
+    onChangeCheckbox = event => {
+        this.setState({[event.target.name]: event.target.checked});
+    };
+
     render() {
         const {
             username,
@@ -133,9 +137,15 @@ class SignUpFormBase extends Component {
                 }
                 </div>
                 <Row>
-                    <Col md={12}>
+                    <Col md={6}>
                         <Form.Group controlId="formBasicEmail">
                             <Form.Label className="signup__form__label">Adresse email</Form.Label>
+                            <Form.Control type="text" value={email} onChange={this.onChange} name="email" className="signup__form__input" />
+                        </Form.Group>
+                    </Col>
+                    <Col md={6}>
+                        <Form.Group controlId="formBasicEmailTwo">
+                            <Form.Label className="signup__form__label">Confirmer votre adresse email</Form.Label>
                             <Form.Control type="text" value={email} onChange={this.onChange} name="email" className="signup__form__input" />
                         </Form.Group>
                     </Col>
@@ -144,7 +154,7 @@ class SignUpFormBase extends Component {
                     <Col md={6}>
                         <Form.Group controlId="formBasicPasswordOne">
                             <Form.Label className="signup__form__label">Mot de passe</Form.Label>
-                            <Form.Control type="password" value={passwordOne} onChange={this.onChange} name="passwordOne" className="signin__form__input" />
+                            <Form.Control type="password" value={passwordOne} onChange={this.onChange} name="passwordOne" className="signup__form__input" />
                         </Form.Group>
                     </Col>
                     <Col md={6}>
